@@ -262,6 +262,8 @@ void HesaiLidarSDK_internal::processLiarPacket()
 	}
 }
 
+
+
 // boost::shared_ptr<PPointCloud> HesaiLidarSDK_internal::processScan(const pandar_msgs::PandarScan::ConstPtr &scanMsg)
 // {
     

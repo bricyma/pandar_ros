@@ -127,6 +127,7 @@ public:
         const unsigned int pclType);
     ~RawData() {}
     int setup();
+
     int unpack(
         PandarPacket &packet,
         PPointCloud &pc,

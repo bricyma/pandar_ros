@@ -1,5 +1,6 @@
 <launch>
 	<arg name="pcap_file"  default=""/>
+	<arg name="mode"  default=""/>
 	<arg name="server_ip" default=""/>
 	<arg name="server_port"  default="9870"/>
 	<arg name="lidar_recv_port"  default="2368"/>
@@ -13,6 +14,7 @@
 
 	<node pkg="hesai_lidar" name="hesai_lidar" type="hesai_lidar_node" output="screen" >
 		<param name="pcap_file" type="string" value="$(arg pcap_file)"/>
+		<param name="mode" type="int" value="$(arg mode)"/>
 		<param name="server_ip" type="string" value="$(arg server_ip)"/>
 		<param name="server_port"  type="int" value="$(arg server_port)"/>
 		<param name="lidar_recv_port"  type="int" value="$(arg lidar_recv_port)"/>
