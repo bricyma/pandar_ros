@@ -106,7 +106,7 @@ public:
         scan->packets[i].data[j] = it->data[j];
       i++; 
     }
-    printf("%d\n", i);  // TODO, pkt size
+    // printf("%d\n", i);  // TODO, pkt size
     scan->header.stamp = ros::Time::now();
     pktsPublisher.publish(scan);
 
