@@ -4,43 +4,30 @@
 2. sudo apt install libpcap-dev libyaml-cpp-dev
 ```
 
-## Build
-```
-mkdir -p rosworkspace/src ; cd rosworkspace/src
-git clone https://github.com/HesaiTechnology/HesaiLidar-ros.git --recursive
-cd ../
-catkin_make --cmake-args -DCamera_Enable=ON
-source ./devel/setup.sh
-```
 
 ## Run
 ### Pandar40
 ```
-roslaunch hesai_lidar p40.launch
+roslaunch hesai_lidar p40.launch 
 ```
 
 ### Pandar40P
+#### Online mode: 
+input: UDP packets
+output: ```/pandar_packets, /pandar_points```
 ```
-roslaunch hesai_lidar p40p.launch
+roslaunch hesai_lidar p40p.launch mode:=0
 ```
-
-### Pandora
+#### Offline mode:
+input: ```/pandar_packets ```
+output: ```/pandar_points```
 ```
-roslaunch hesai_lidar pandora_ros.launch
-```
-
-There is 6 node of Hesai Lidar ROS
-```
-/pandar_points
-/hesai_lidar/pandora_camera0 (Only Pandora)
-/hesai_lidar/pandora_camera1 (Only Pandora)
-/hesai_lidar/pandora_camera2 (Only Pandora)
-/hesai_lidar/pandora_camera3 (Only Pandora)
-/hesai_lidar/pandora_camera4 (Only Pandora)
+roslaunch hesai_lidar p40p.launch mode:=1
 ```
 
 ## Parameters:
 ```
+	<arg name="mode" default="0"/> driver mode, 0: online, 1: offline
 	<arg name="server_ip" default="192.168.20.51"/> pandora's ip
 	<arg name="server_port"  default="9870"/>       pandora's camera port
 	<arg name="lidar_recv_port"  default="8080"/>   lidar's port
